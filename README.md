@@ -1,6 +1,6 @@
 # iot_home_challenge_5
 
 
-![scenario](scenario.png)
+![scenario](/scenario.png)
 
-![flows](flows.png)
+![flows](/flows.png)
