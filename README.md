@@ -1,4 +1,4 @@
-# iot_home_challenge_5
+# IoT Home Challenge 5
 
 https://github.com/FedericoGianni/iot_home_challenge_5
 
