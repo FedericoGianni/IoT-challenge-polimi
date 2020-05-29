@@ -82,9 +82,9 @@ enum {
 #define RADIO_TOSS_H
 
 typedef nx_struct radio_toss_msg {
+  nx_uint16_t topic;
   nx_uint16_t random;
-  nx_uint16_t id;
-  nx_uint8_t topic[20];
+  
 
 } radio_toss_msg_t;
 
