@@ -1,4 +1,4 @@
-COMPONENT=TestPrintfAppC
+COMPONENT=Homework5AppC
 CFLAGS += -I$(TOSDIR)/lib/printf
 #CFLAGS += -DNEW_PRINTF_SEMANTICS
 
