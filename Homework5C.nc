@@ -60,8 +60,6 @@ implementation {
   uint16_t random;
   radio_toss_msg_t* rcm;
 
-  char topic[] = "static_top";
-
   event void Boot.booted() {
     call AMControl.start();
   }
@@ -79,11 +77,9 @@ implementation {
     }
 
 
-	  counter = (call Random.rand16() % 100);
+	  random = (call Random.rand16() % 100);
     rcm->random = random;
     rcm-> id = TOS_NODE_ID;
-
-    memcpy( rcm->topic, topic, sizeof(topic) );
 
 
     if (call AMSend.send(1, &packet, sizeof(radio_toss_msg_t)) == SUCCESS) {
@@ -128,7 +124,7 @@ implementation {
 
 
 
-		   printf("id: %d random: %d topic: %s \n", rcm->id, rcm->counter, rcm->topic);
+		   printf("id: %d random: %d\n", rcm->id, rcm->counter);
        printfflush();
 
 		  return bufPtr;
