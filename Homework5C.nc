@@ -42,7 +42,7 @@
 #include "homework5.h"
 #include <string.h>
 
-module TestPrintfC {
+module Homework5C {
   uses {
     interface Boot;
     interface Timer<TMilli>;
@@ -75,11 +75,10 @@ implementation {
     if (rcm == NULL) {
 		return;
     }
-
-
-	  random = (call Random.rand16() % 100);
+    
+    random = (call Random.rand16() % 100);
     rcm->random = random;
-    rcm-> id = TOS_NODE_ID;
+    rcm->topic = TOS_NODE_ID;
 
 
     if (call AMSend.send(1, &packet, sizeof(radio_toss_msg_t)) == SUCCESS) {
@@ -124,7 +123,7 @@ implementation {
 
 
 
-		   printf("id: %d random: %d\n", rcm->id, rcm->counter);
+		   printf("id: %d random: %d\n", rcm->topic, rcm->counter);
        printfflush();
 
 		  return bufPtr;
