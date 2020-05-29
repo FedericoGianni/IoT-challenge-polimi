@@ -123,7 +123,7 @@ implementation {
 
 
 
-		   printf("id: %d random: %d\n", rcm->topic, rcm->counter);
+		   printf("id: %d random: %d\n", rcm->topic, rcm->random);
        printfflush();
 
 		  return bufPtr;
