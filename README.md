@@ -35,7 +35,9 @@ According to the flow above, node-red listen on that socket and then filters the
 
 Since the printf prints also some bad characters we used javascript regex to extract the right topic and random number.
 
-Our string structure was 
+Our string structure was `id: (number) random: (number)\n`
+Where id is representing the static topic, and spaces were used to split the string with javascript into an array of strings.
+
 
 We then redirected the flow from mote2 and mote3 to different thingspeak fields, and discarded messages containing a value > 70.
 
