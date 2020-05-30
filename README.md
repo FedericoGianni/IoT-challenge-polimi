@@ -13,7 +13,7 @@ https://github.com/FedericoGianni/iot_home_challenge_5
 
 ## Introduction
 
-The goal of this challenge is to link TinyOS sky motes in cooja with node-red throught a socket, filter only the message of interest and then publish these messages to thingspeak throught the MQTT protocol, as shown in the scheme.
+The goal of this challenge is to link TinyOS sky motes in cooja with node-red throught a TCP socket, filter only the message of interest and then publish these messages to thingspeak throught the MQTT protocol, as shown in the scheme.
 
 The messages contain a static topic and a random number between 0 and 100. 
 
