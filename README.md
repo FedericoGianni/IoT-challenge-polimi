@@ -23,7 +23,9 @@ The messages contain a static topic and a random number between 0 and 100.
 
 ### From TinyOS to node-red
 
-There are 3 motes, mote 2 and 3 both sends a message every timer ticks to mote 1. The static topic is an integer which contains the TOS_NODE_ID to differentiate the message sender.
+![cooja](/cooja.PNG)
+
+There are 3 motes, mote 2 and 3 both sends a message every timer ticks to mote 1. The static topic is an integer which contains the TOS_NODE_ID to differentiate the message sender. We used an integer because a topic could be also a number in form of string.
 
 Mote 1 receives the messages and with printf it sends them throught a socket serial port which in our case was (localhost, 60001). 
 
