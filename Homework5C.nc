@@ -82,9 +82,9 @@ implementation {
 
 
     if (call AMSend.send(1, &packet, sizeof(radio_toss_msg_t)) == SUCCESS) {
-
+		dbg("radio_send", "Sending packet");
 		locked = TRUE;
-
+		dbg_clear("radio_send", " at time %s \n", sim_time_string());
       }
       }
      }
@@ -93,27 +93,34 @@ implementation {
 
   event void AMControl.startDone(error_t err) {
     if (err == SUCCESS) {
-
+      dbg("radio","Radio on on node %d!\n", TOS_NODE_ID);
       call Timer.startPeriodic(5000);
     }
     else {
-
+      dbgerror("radio", "Radio failed to start, retrying...\n");
       call AMControl.start();
     }
   }
 
   event void AMControl.stopDone(error_t err) {
-
+    dbg("boot", "Radio stopped!\n");
   }
 
   event message_t* Receive.receive(message_t* bufPtr,
 				   void* payload, uint8_t len) {
 
-
+   	if(TOS_NODE_ID == 1){
 
 		if (len != sizeof(radio_toss_msg_t)) {return bufPtr;}
 		else {
 		  radio_toss_msg_t* rcm = (radio_toss_msg_t*)payload;
+
+		  dbg("radio_rec", "Received packet at time %s\n", sim_time_string());
+		  dbg("radio_pack",">>>Pack \n \t Payload length %hhu \n", call Packet.payloadLength( bufPtr ));
+
+		  dbg_clear("radio_pack","\t\t Payload \n" );
+		  dbg_clear("radio_pack", "\t\t msg_random: %hhu \n", rcm->random);
+
 
 
 		   printf("id: %d random: %d\n", rcm->topic, rcm->random);
@@ -121,13 +128,14 @@ implementation {
 
 		  return bufPtr;
 		}
-    
+    }
   }
 
   event void AMSend.sendDone(message_t* bufPtr, error_t error) {
     if (&packet == bufPtr) {
       locked = FALSE;
-
+      dbg("radio_send", "Packet sent...");
+      dbg_clear("radio_send", " at time %s \n", sim_time_string());
     }
   }
 
