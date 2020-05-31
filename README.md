@@ -53,4 +53,5 @@ Using the debug node we could see that the messages were correctly being deliver
 
 We then checked also on the thingspeak channel that the messages were being delivered without losses due to high publish rates.
 
+![thingspeak](/thingspeak.PNG)
 
