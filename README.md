@@ -17,13 +17,13 @@ The goal of this challenge is to link TinyOS sky motes in cooja with node-red th
 
 The messages contain a static topic and a random number between 0 and 100. 
 
-![scenario](/scenario.PNG)
+![scenario](/img/scenario.PNG)
 
 ## Core process
 
 ### From TinyOS to node-red
 
-![cooja](/cooja.PNG)
+![cooja](/img/caooja.PNG)
 
 There are 3 motes, mote 2 and 3 both sends a message every timer ticks to mote 1. The static topic is an integer which contains the TOS_NODE_ID to differentiate the message sender. We used an integer because a topic could be also a number in form of string.
 
@@ -31,7 +31,7 @@ Mote 1 receives the messages and with printf it sends them throught a socket ser
 
 ### From node-red to thingspeak
 
-![flows](/flow.PNG)
+![flows](/img/flow.PNG)
 
 According to the flow above, node-red listen on that socket and then filters the messages. We used a single printf with some static parts to identify the data by splitting the messages by spaces with a javascript function.
 
@@ -53,5 +53,5 @@ Using the debug node we could see that the messages were correctly being deliver
 
 We then checked also on the thingspeak channel that the messages were being delivered without losses due to high publish rates.
 
-![thingspeak](/thingspeak.PNG)
+![thingspeak](/img/thingspeak.PNG)
 
