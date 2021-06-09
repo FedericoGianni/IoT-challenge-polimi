@@ -4,11 +4,11 @@ https://github.com/FedericoGianni/iot_home_challenge_5
 
 [Thingspeak Public channel](https://thingspeak.com/channels/1070802)
 
-> Antoine Kryus 950120
+> Antoine Kryus
 
-> Diego Carletti 953280
+> Diego Carletti 
 
-> Federico Dei Cas 952926
+> Federico Dei Cas
 
 
 ## Introduction
